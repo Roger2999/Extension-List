@@ -36,7 +36,7 @@ display: flex;
 flex-wrap: wrap;
 justify-content: flex-start;
 max-width: 90vw;
-
+min-width: 90vw;
 gap: 20px;
 
 }
@@ -45,9 +45,24 @@ gap: 20px;
     flex: 1;
     justify-content: center;
     align-items: center;
+    max-width: 400px;
     min-width: 300px;
+    height: 200px; /* altura fija, puedes ajustarla */
+    border-width: 5px;
+    border-style: groove;
+    border-color: rgb(175, 179, 179);
     background-color: rgb(68, 68, 68);
     color: white;
+}
+.card1 > * {
+    flex: 1 1 auto;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 .card1 p{
     color: rgb(192, 190, 190);

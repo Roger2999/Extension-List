@@ -8,15 +8,7 @@ export const Dashboard = () => {
   // Estado local de extensiones y filtro
   const [extensions, setExtensions] = useState(extensionsData);
   const [filter, setFilter] = useState("all");
-
   // Handler para alternar el estado activo de una extensión
-  const toggleActive = (id) => {
-    setExtensions(
-      extensions.map((ext) =>
-        ext.id === id ? { ...ext, active: !ext.active } : ext
-      )
-    );
-  };
 
   // Filtrado según el filtro seleccionado
   const filteredExtensions = extensions.filter((ext) => {
@@ -25,6 +17,16 @@ export const Dashboard = () => {
     return true; // "all"
   });
 
+  const handleDelete = (id) => {
+    setExtensions(extensions.filter((e) => e.id !== id));
+  };
+  const toggleActive = (id) => {
+    setExtensions(
+      extensions.map((ext) =>
+        ext.id === id ? { ...ext, active: !ext.active } : ext
+      )
+    );
+  };
   return (
     <>
       <div className="container-cards">
@@ -44,8 +46,20 @@ export const Dashboard = () => {
                 image={e.image}
                 active={e.active}
                 onToggleActive={() => toggleActive(e.id)}
+                onDelete={() => handleDelete(e.id)}
               />
             ))}
+            {filteredExtensions < 1 && (
+              <p
+                style={{
+                  fontSize: "30px",
+                  width: "fit-content",
+                  margin: "100px auto",
+                }}
+              >
+                No hay extensiones
+              </p>
+            )}
           </div>
         </div>
       </div>

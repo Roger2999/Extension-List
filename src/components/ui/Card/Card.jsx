@@ -1,11 +1,18 @@
 import "./Card.css";
-export const Card = ({ title, description, image, active, onToggleActive }) => {
+export const Card = ({
+  title,
+  description,
+
+  active,
+  onToggleActive,
+  onDelete,
+}) => {
   return (
     <>
       <div className="card bg-base-100 w-96 shadow-sm card1">
         <div className="card-body">
           <figure className="contain">
-            <img src={image || "src/assets/extension-icon.jpg"} alt={title} />
+            <img src={"src/assets/extension-icon.jpg"} alt={title} />
           </figure>
           <div className="contain">
             <h2 className="card-title">{title}</h2>
@@ -14,7 +21,9 @@ export const Card = ({ title, description, image, active, onToggleActive }) => {
         </div>
         <div className="buttons">
           <div className="btn-c1">
-            <button className="btn btn-outlin">Remove</button>
+            <button onClick={onDelete} className="btn btn-outline">
+              Remove
+            </button>
           </div>
           <div className="btn-c2">
             <input

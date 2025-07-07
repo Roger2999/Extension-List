@@ -1,28 +1,21 @@
 export const CategoryButtons = ({ filter, setFilter }) => {
+  const CATEGORIES = [
+    { key: "all", label: "All" },
+    { key: "active", label: "Active" },
+    { key: "inactive", label: "Inactive" },
+  ];
+
   return (
     <>
-      <button
-        className={`btn btn-outline b${filter === "all" ? " btn-active" : ""}`}
-        onClick={() => setFilter("all")}
-      >
-        All
-      </button>
-      <button
-        className={`btn btn-outline b${
-          filter === "active" ? " btn-active" : ""
-        }`}
-        onClick={() => setFilter("active")}
-      >
-        Active
-      </button>
-      <button
-        className={`btn btn-outline b${
-          filter === "inactive" ? " btn-active" : ""
-        }`}
-        onClick={() => setFilter("inactive")}
-      >
-        Inactive
-      </button>
+      {CATEGORIES.map(({ key, label }) => (
+        <button
+          key={key}
+          className={`btn btn-outline${filter === key ? " btn-active" : ""}`}
+          onClick={() => setFilter(key)}
+        >
+          {label}
+        </button>
+      ))}
     </>
   );
 };

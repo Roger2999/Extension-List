@@ -1,0 +1,50 @@
+.card-body{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: start;
+    width: 300px;
+    height: 200px;
+
+}
+.contain{
+    
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: start;
+
+}
+
+.contain img{
+   width: 90px;
+   height: 70px;
+}
+
+.buttons{
+display: flex;
+justify-content: space-evenly;
+width: 100%;
+padding: 10px;
+
+
+}
+
+.btn-c1{
+    display: flex;
+    flex: 1;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    justify-content: start;
+}
+.btn-c2{
+    display: flex;
+    flex: 1;
+   margin-right: 20px;
+   align-items: center;
+    justify-content: end;
+}
+
+.toggle{
+    background-color: rgb(243, 106, 52);
+}
